@@ -1,0 +1,16 @@
+FROM <image name> - sets the parent image (
+WORKDIR <directory path? - sets the current working directory inside the container image for other commands
+COPY <source> <destination> - copies files from the host into the container image
+RUN <command> - executes a command within the conatainer iamge
+EXPOSE < port> - tells docker that the software in the container listens on a particular port
+CMD <array of command arguments> - sets the command that is executed by the container when it is run
+
+EXAMPLE BELOW:
+
+FROM node:carbon
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 8080
+CMD ["npm", "start"]
